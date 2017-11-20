@@ -37,10 +37,11 @@ void run(double stock_mean, double stock_stdev, double bond_mean,
 	 double bond_stdev, int rebalance);
 
 /*
- * here, we run the simulation three times:
- * once with the given data,
+ * here, we run the simulation four times:
+ * once under normal conditions
  * once with zero standard deviations (fixed return)
- * and once more with the funds rebalanced each year
+ * once with the funds rebalanced each year
+ * and once with funds rebalance and zero standard deviations
  */
 int main(int argc, char **argv)
 {
@@ -51,16 +52,19 @@ int main(int argc, char **argv)
 	fprintf(stderr, "Running tests ...\n");
 	test(); /* test to validate Knuth's method */
 #endif		/* DEBUG */
-	printf("Scenario: normal conditions\n");
+	printf("Scenario: no rebalance, normal parameters\n");
 	run(STOCK_RETURNS_MEAN, STOCK_RETURNS_STDEV, BOND_RETURNS_MEAN,
 	    BOND_RETURNS_STDEV, 0);
 
-	printf("\nScenario: standard deviation = 0\n");
+	printf("\nScenario: no rebalance, standard deviation = 0\n");
 	run(STOCK_RETURNS_MEAN, 0, BOND_RETURNS_MEAN, 0, 0);
 
 	printf("\nScenario: portfolio rebalanced\n");
 	run(STOCK_RETURNS_MEAN, STOCK_RETURNS_STDEV, BOND_RETURNS_MEAN,
 	    BOND_RETURNS_STDEV, 1);
+
+	printf("\nScenario: portfolio rebalanced, standard deviation = 0\n");
+	run(STOCK_RETURNS_MEAN, 0, BOND_RETURNS_MEAN, 0, 1);
 
 	gsl_rng_free(r);
 	return 0;
