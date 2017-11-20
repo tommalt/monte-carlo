@@ -1,0 +1,59 @@
+Scenario: no rebalance, normal parameters
+	Parameters
+Mean stock return   : 0.08
+Stdev stock returns : 0.10
+Mean bond return    : 0.04
+Stdev bond returns  : 0.04
+Rebalance portfolio : false
+	Outputs
+Mean accumulation   : $284464
+Stdev accumulation  : $54456
+P(acc > 240000)     : 0.78
+P(acc > 270000)     : 0.57
+P(acc > 300000)     : 0.36
+Confidence interval : (281632,287297)
+
+Scenario: no rebalance, standard deviation = 0
+	Parameters
+Mean stock return   : 0.08
+Stdev stock returns : 0.00
+Mean bond return    : 0.04
+Stdev bond returns  : 0.00
+Rebalance portfolio : false
+	Outputs
+Mean accumulation   : $283920
+Stdev accumulation  : $0
+P(acc > 240000)     : 1.00
+P(acc > 270000)     : 1.00
+P(acc > 300000)     : 0.00
+Confidence interval : (283920,283920)
+
+Scenario: portfolio rebalanced
+	Parameters
+Mean stock return   : 0.08
+Stdev stock returns : 0.10
+Mean bond return    : 0.04
+Stdev bond returns  : 0.04
+Rebalance portfolio : true
+	Outputs
+Mean accumulation   : $280283
+Stdev accumulation  : $50601
+P(acc > 240000)     : 0.78
+P(acc > 270000)     : 0.54
+P(acc > 300000)     : 0.33
+Confidence interval : (277651,282915)
+
+Scenario: portfolio rebalanced, standard deviation = 0
+	Parameters
+Mean stock return   : 0.08
+Stdev stock returns : 0.00
+Mean bond return    : 0.04
+Stdev bond returns  : 0.00
+Rebalance portfolio : true
+	Outputs
+Mean accumulation   : $280155
+Stdev accumulation  : $0
+P(acc > 240000)     : 1.00
+P(acc > 270000)     : 1.00
+P(acc > 300000)     : 0.00
+Confidence interval : (280155,280155)
