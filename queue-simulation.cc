@@ -17,7 +17,7 @@ void run(int n, int discard);
 double normal_draw(double mu, double sd);
 int main(int argc, char **argv)
 {
-	run(1116, 100);
+	run(0x100000, 100);
 	return 0;
 }
 
@@ -56,9 +56,6 @@ void run(int n, int discard)
 	fin = serv_start + proc;
 	tsys = fin - arriv;
 	int i;
-	#ifdef DEBUG
-	printf("inter_arriv, ariv, serv_start, tq, proc, fin, tsys\n");
-	#endif
 	for (i = 1; i < n; i++) {
 		inter_arriv = draw_interarrival(engine);
 		arriv += inter_arriv;
@@ -68,32 +65,17 @@ void run(int n, int discard)
 		fin = serv_start + proc;
 		tsys = fin - arriv;
 		if (discard < i) {
-			nwait += (tq > 0.0);
-			nwait_1m += (tq > 1.0);
+			nwait += (int)(tq > 0.0);
+			nwait_1m += (int)(tq > 1.0);
 			avg_tq += tq;
 			max_tq = (tq > max_tq) ? tq : max_tq;
 			util += proc;
 		}
-		#ifdef DEBUG
-		// printf("%3.2f %6.2f %9.2f %12.2f %15.2f %18.2f %21.2f\n",
-		printf("%8.2f %8.2f %8.2f %8.2f %8.2f %8.2f %8.2f\n",
-			inter_arriv, arriv, serv_start, tq, proc,fin,tsys);
-		#endif /* DEBUG */
 	}
-	pwait = nwait / (double)(n - discard);
-	pwait_1m = nwait_1m / (double)(n - discard);
+	pwait = nwait / (n - discard);
+	pwait_1m = nwait_1m / (n - discard);
 	avg_tq /= (double)(n - discard);
-	util /= (double)(fin);
-
-	printf("*** SUMMARY ***\n");
-
-	printf("Number waiting: %.0f\n", nwait);
-	printf("Probability of waiting: %.2f\n", pwait);
-	printf("Average waiting time: %.2f\n", avg_tq);
-	printf("Maximum waiting time: %.2f\n", max_tq);
-	printf("Utilization: %.2f\n", util);
-	printf("Number waiting > 1 minute: %.2f\n", nwait_1m);
-	printf("Probability wait > 1 minute: %.2f\n", pwait_1m);
+	util /= (double)(n - discard);
 }
 
 double norm_cdf(double z) { return 0.5 * erfc(-z * M_SQRT1_2); }
