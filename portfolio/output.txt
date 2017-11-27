@@ -7,11 +7,11 @@ Stdev bond returns  : 0.04
 Rebalance portfolio : false
 	Outputs
 Mean accumulation   : $284464
-Stdev accumulation  : $54456
+Stdev accumulation  : $54429
 P(acc > 240000)     : 0.78
 P(acc > 270000)     : 0.57
 P(acc > 300000)     : 0.36
-Confidence interval : (281632,287297)
+Confidence interval : (199220,404965)
 
 Scenario: no rebalance, standard deviation = 0
 	Parameters
@@ -37,11 +37,11 @@ Stdev bond returns  : 0.04
 Rebalance portfolio : true
 	Outputs
 Mean accumulation   : $280283
-Stdev accumulation  : $50601
+Stdev accumulation  : $50576
 P(acc > 240000)     : 0.78
 P(acc > 270000)     : 0.54
 P(acc > 300000)     : 0.33
-Confidence interval : (277651,282915)
+Confidence interval : (198067,391961)
 
 Scenario: portfolio rebalanced, standard deviation = 0
 	Parameters
