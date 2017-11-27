@@ -1,0 +1,10 @@
+fix confidence interval:
+
+record all observations of accumulation
+
+sort
+
+drop 2*1/2 (or whatever conf. level) on each side of distribution , the tails
+
+the cut off at those points is the confidence interval
+
