@@ -6,13 +6,13 @@
  * the accumulation?
  *
  * For the first scenario, the mean accumulation
- * is $284,741 and the standard deviation is $55,460.
+ * is $284,464 and the standard deviation is $54,429
  *
  * (b) What is the probability that the accumulation is
  * over $240,000, $270,000, and $300,000?
  *
  * P(acc > $240,000) = 0.78
- * P(acc > $270,000) = 0.56
+ * P(acc > $270,000) = 0.57
  * P(acc > $300,000) = 0.36
  *
  * (c) What is the accumulation if the standard deviations
@@ -24,7 +24,7 @@
  * accumulation?
  *
  * Yes. For the first scenario, the confidence interval is
- * ($283,829 , $285,653) with a confidence level of 95%.
+ * ($119,220 , $404,965) with a confidence level of 95%.
  * For the second scenario, it is exactly $283,920 (it does not
  * have an 'interval' because returns do not vary)
  *
@@ -39,13 +39,13 @@
  * ------------
  * (f)
  *   (a) For the scenario where funds are rebalanced every year, the
- *   mean accumulation is $280,166 and the standard deviation is
- *   $49,757.
+ *   mean accumulation is $280,283 and the standard deviation is
+ *   $50,576.
  *
  *   (b)
- *   P(acc > $240,000) = 0.79
- *   P(acc > $270,000) = 0.55
- *   P(acc > $300,000) = 0.32
+ *   P(acc > $240,000) = 0.78
+ *   P(acc > $270,000) = 0.54
+ *   P(acc > $300,000) = 0.33
  *   
  *   (c) The accumulation is $280,155
  *
