@@ -1,0 +1,13 @@
+$ ./walk
+Iterations			: 10000
+P(within two blocks from store) : 0.4847
+Average blocks walked           : 7.1170
+Average distance from store     : 2.5349
+
+We can test the validity of our simulation by noting that the
+average blocks walked should be:
+	1 + 9 * 0.68 = 7.12
+because he always walks on the first minute, thus we are left with
+9 minutes and the probability of walking, 0.68
+
+
