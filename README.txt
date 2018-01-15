@@ -8,3 +8,6 @@ depends on the GNU Scientific Library.
 queue (C++11) is a simulation of units flowing through a
 business process with a single queue and a single
 processor (or resource)
+
+walk (C) simulates the path taken by an inebriated man wandering
+the streets.
